@@ -4,12 +4,12 @@ import {Link} from '@reach/router';
 const AuthorForm = (props) => {
     const { initialName, onSubmitProp } = props
     const [ name, setName ] = useState(initialName);
+    
    
     
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmitProp({name});
-        setName(initialName);
     }
 
     return (

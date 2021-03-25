@@ -3,7 +3,7 @@ import { Link } from '@reach/router';
 import DeleteButton from '../components/DeleteButton';
 const Authors = (props) => {
     const [ authorList, setAuthorList ] = useState(null)
-    console.log(props.authors)
+    
     const updateOnDelete = (delId) => {
         const filteredAuthors = props.authors.filter((author) => {
             return author._id !== delId
@@ -19,7 +19,7 @@ const Authors = (props) => {
                     <Link to={`/${author._id}`}>{author.name}</Link>    
                 </td>
                 <td>
-                    <Link to={`/${author._id}`} className="btn btn-success mx-2">Edit</Link>
+                    <Link to={`/${author._id}/edit`} className="btn btn-success mx-2">Edit</Link>
                     <DeleteButton authorId={author._id} successCallback={()=>updateOnDelete(author._id)}/>
                 </td>
             </tr>

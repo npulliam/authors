@@ -3,7 +3,7 @@ import axios from 'axios';
 import {navigate, Link} from '@reach/router';
 import DeleteButton from '../components/DeleteButton';
 
-function Author(props) {
+const Author = (props) => {
     const [author, setAuthor] = useState(null);
     useEffect(()=> {
         axios
@@ -28,6 +28,9 @@ function Author(props) {
 
     return (
         <div className="container text-center">
+            <div className="row">
+                <Link to="/">Home</Link>
+            </div>
             <h3>{author.name}</h3>
             <div className="d-flex justify-content-center">
                 <DeleteButton authorId={author._id} successCallback={handleDelete}/>
