@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from '@reach/router';
 import DeleteButton from '../components/DeleteButton';
-export default (props) => {
+const Authors = (props) => {
     const [ authorList, setAuthorList ] = useState(null)
     console.log(props.authors)
     const updateOnDelete = (delId) => {
@@ -15,7 +15,9 @@ export default (props) => {
         const updatedAuthorList = props.authors.map((author) =>{
         return(
             <tr key={author._id}>
-                <td>{author.name}</td>
+                <td>
+                    <Link to={`/${author._id}`}>{author.name}</Link>    
+                </td>
                 <td>
                     <Link to={`/${author._id}`} className="btn btn-success mx-2">Edit</Link>
                     <DeleteButton authorId={author._id} successCallback={()=>updateOnDelete(author._id)}/>
@@ -27,20 +29,30 @@ export default (props) => {
     }, [props.authors]);
 
     return(
-        <div className="m-3 border-top pt-5 text-center">
+        <div className="m-3 pt-5 text-center">
             <div className="row">
-                <h3>Favorite Authors</h3>
-                <table className="table table-striped">
-                    <thead>
+                <Link to="/new">Add an Author</Link>
+            </div>
+            <div className="row">
+                <p>We have quotes by:</p>
+            </div>
+            
+            <table className="table table-secondary table-striped border">
+                <thead>
+                    <tr>
                         <th>Author Name</th>
                         <th>Available Actions</th>
-                    </thead>
-                    <tbody>
-                        {authorList}
-                    </tbody>
-                </table>
-            </div>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {authorList}
+                </tbody>
+            </table>
+        
 
         </div>
     )
 }
+
+export default Authors;

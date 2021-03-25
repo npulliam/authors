@@ -31,7 +31,7 @@ function Author(props) {
             <h3>{author.name}</h3>
             <div className="d-flex justify-content-center">
                 <DeleteButton authorId={author._id} successCallback={handleDelete}/>
-                <Link to={`/${author._id}/edit`} className="btn-sm mx-2 btn-link btn-dark">Edit</Link>
+                <Link to={`/${author._id}/edit`} className="btn-sm mx-2 btn-primary text-decoration-none pt-2">Edit</Link>
             </div>
         </div>
     )

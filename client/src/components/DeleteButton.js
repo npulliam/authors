@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default (props) => {
+const DeleteButton = (props) => {
     const { authorId, successCallback } = props;
 
     const deleteAuthor = (e) => {
@@ -17,3 +17,5 @@ export default (props) => {
         <button className="btn btn-danger" onClick={deleteAuthor}>Delete</button>
     )
 }
+
+export default DeleteButton;

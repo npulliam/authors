@@ -8,9 +8,8 @@ module.exports = {
             .then((author) => {
                 res.json(author);
             })
-            .catch((err) => {
-                res.json(err);
-            });
+            .catch(err => res.status(400).json(err));
+
     },
     getAll: function(req, res) {
         console.log("getAll method executed");
@@ -30,9 +29,10 @@ module.exports = {
             .then((author) => {
                 res.json(author);
             })
-            .catch((err) => {
-                res.json(err);
-            });
+            .catch(err => res.status(400).json(err));
+            // .catch((err) => {
+            //     res.json(err);
+            // });
     },
     delete: function(req, res) {
         console.log("delete method executed");
@@ -55,9 +55,7 @@ module.exports = {
             .then((author) => {
                 res.json(author);
             })
-            .catch((err) => {
-                res.json(err)
-            })
+            .catch(err => res.status(400).json(err));
     },
     random: function(req, res) {
         console.log("random method executed");
